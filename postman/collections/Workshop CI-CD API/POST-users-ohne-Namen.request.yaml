@@ -1,0 +1,19 @@
+$kind: http-request
+name: POST /users ohne Namen
+method: POST
+url: '{{baseUrl}}/users'
+order: 5000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {}
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('Status code is 400', function () {
+          pm.response.to.have.status(400);
+      });

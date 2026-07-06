@@ -1,0 +1,24 @@
+$kind: http-request
+name: POST /users
+method: POST
+url: '{{baseUrl}}/users'
+order: 3000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Newman Testuser"
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('Status code is 201', function () {
+          pm.response.to.have.status(201);
+      });
+      pm.test('Antwort enthaelt den angelegten Namen', function () {
+          pm.expect(pm.response.json().name).to.eql('Newman Testuser');
+      });

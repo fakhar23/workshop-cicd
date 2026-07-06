@@ -1,0 +1,15 @@
+$kind: http-request
+name: GET /users
+method: GET
+url: '{{baseUrl}}/users'
+order: 2000
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('Status code is 200', function () {
+          pm.response.to.have.status(200);
+      });
+      pm.test('Antwort enthaelt eine users-Liste', function () {
+          pm.expect(pm.response.json().users).to.be.an('array');
+      });

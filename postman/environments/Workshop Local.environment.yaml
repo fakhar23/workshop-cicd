@@ -1,0 +1,12 @@
+name: Workshop Local
+values:
+  - key: baseUrl
+    enabled: true
+    value: 'http://localhost:3000'
+  - key: apiKey
+    enabled: true
+    value: ''
+  - key: API_ENV_NAME
+    enabled: true
+    value: staging
+color: 240
