@@ -158,6 +158,9 @@
               "// ===========================================================",
               "// TODO (Block 2, Aufgabe 3): Dieser Endpunkt wurde noch nicht",
               "// getestet. Ergaenze hier einen eigenen Test, der prueft, dass",
+              pm.test('Status code is 400', function () {
+              pm.response.to.have.status(400);
+});
               "// die API ohne 'name' im Body mit 400 antwortet.",
               "// ===========================================================",
               ""
